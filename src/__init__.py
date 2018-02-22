@@ -11,29 +11,26 @@ from config import app_config
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_bootstrap import Bootstrap
-from flask_moment import Moment
 
 login_manager = LoginManager()
-# from src.models import db, session
+from .models import db, session
 from .env import DEFAULT_FLASK_CONFIG
 
 config_name = os.getenv('FLASK_CONFIG')
 if not config_name:
     config_name = DEFAULT_FLASK_CONFIG
     
-# def create_app(config_name = "dev"):
 app = Flask(__name__, instance_relative_config = True)
 app.config.from_object(app_config[config_name])
-moment = Moment(app)
 
 Bootstrap(app)
-# db.init_app(app)
+db.init_app(app)
 
 login_manager.init_app(app)
 login_manager.login_message = "You must be logged in to access this page."
 login_manager.login_view = "auth.login"
 
-# migrate = Migrate(app, db)
+migrate = Migrate(app, db)
 
 logging.basicConfig()
 
@@ -55,5 +52,5 @@ def page_not_found(e):
 
 @app.teardown_request
 def shutdown_session(exception=None):
-    # db.session.remove()
+    db.session.remove()
     pass
