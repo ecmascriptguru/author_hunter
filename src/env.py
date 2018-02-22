@@ -1,0 +1,1 @@
+DEFAULT_FLASK_CONFIG = 'dev'
