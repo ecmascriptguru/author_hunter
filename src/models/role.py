@@ -13,7 +13,7 @@ class Role(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(20), unique = True)
     description = db.Column(db.String(200))
-    # users = db.relationship("User", backref="role", lazy="dynamic")
+    users = db.relationship("User", backref="role", lazy="dynamic")
 
     def __init__(self, **kwargs):
         self.name = kwargs.get("name", "Administrator")
