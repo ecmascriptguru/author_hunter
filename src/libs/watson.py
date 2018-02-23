@@ -24,6 +24,9 @@ class WatsonMixin(object):
         self.engine = NaturalLanguageUnderstandingV1(username=username, password=password, version='2017-02-27')
 
     def get_authors(self, url, **kwargs):
+        if not self.validate:
+            return []
+            
         try:
             response = self.engine.analyze(
                 url=url,
