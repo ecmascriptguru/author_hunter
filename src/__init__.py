@@ -32,6 +32,10 @@ login_manager.login_view = "auth.login"
 
 migrate = Migrate(app, db)
 
+from src.apps import auth_app, home_app
+app.register_blueprint(auth_app)
+app.register_blueprint(home_app)
+
 logging.basicConfig()
 
 @app.errorhandler(500)

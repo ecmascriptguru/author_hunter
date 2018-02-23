@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ title }} | MailHunter</title>
+
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename = 'img/favicon.jpg') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+
+    {% block navbar %}
+    {% endblock %}
+
+    {% block sidebar %}
+    {% endblock %}
+    
+    {% block content %}
+    {% endblock %}
+    
+    {% block footer %}
+    {% endblock %}
+
+    {% block aside %}
+    {% endblock %}
+
+    <div class="control-sidebar-bg"></div>
+  </div>
+  <script src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+ 
+  {% block custom_js %}
+  {% endblock %}
+  
+</body>
+</html>
