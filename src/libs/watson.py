@@ -12,6 +12,9 @@ class WatsonMixin(object):
     def __init__(self):
         username = current_app.config['WATSON_USERNAME']
         password = current_app.config['WATSON_PASSWORD']
+        print("==================== username and password=======================")
+        print(username, password)
+        print("===========================================")
         if username and password:
             self.engine = NaturalLanguageUnderstandingV1(username=username, password=password, version='2017-02-27')
         else:
