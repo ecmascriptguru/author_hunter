@@ -16,7 +16,7 @@ pysolr==3.7.0
 python-dateutil==2.6.1
 requests==2.20.0
 six==1.11.0
-urllib3==1.24.2
+urllib3==1.26.5
 watson-developer-cloud==1.0.2
 Flask-Login==0.4.1
 alembic==0.9.8
